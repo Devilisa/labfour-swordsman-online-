@@ -1,4 +1,4 @@
-class TheStead:
+class TheSteed:
 
     def __init__(self, name, speed=10, type_of_steed='horse base'):
         self.speed = speed

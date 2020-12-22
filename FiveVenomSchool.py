@@ -4,7 +4,7 @@ from Avatar import Avatar
 class FiveVenomSchool(Avatar):
 
     def __init__(self, character: Avatar):
-        super().__init__(character.nickname, level=10, hp=character.hp, exp=character.exp)
+        super().__init__(character.nickname, level=10, hp=character.hp, exp=character.exp, steed=character.steed)
         self.school_damage = {'poison_damage': 20, 'earth_damage': 15, 'fire_damage': 15}
         self.earth_damage = self.school_damage['earth_damage']
         self.fire_damage = self.school_damage['fire_damage']

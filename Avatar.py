@@ -1,14 +1,19 @@
+from accessify import protected
+from TheSteed import TheSteed
+
+
 class Avatar:
     chance_to_change_nickname = 1
     exp_limit = 1000
     max_level = 99
     damage = 10
 
-    def __init__(self, nickname, hp=1000, exp=0, level=0):
+    def __init__(self, nickname, hp=1000, exp=0, level=0, steed='none'):
         self.nickname = nickname
         self.hp = hp
         self.exp = exp
         self.level = level
+        self.steed = steed
         self.equipment = {'Helmet': 'none', 'Shirt': 'none', 'Bracers': 'none', 'Pants': 'none', 'Boots': 'none',
                           'Talisman': 'none', 'Ring': 'none', 'Weapon': 'none'}
 
@@ -18,6 +23,10 @@ class Avatar:
             self.exp = self.exp % self.exp_limit
             self.exp_limit += 1000 * self.level
             self.hp += 70 * self.level
+        if self.level == 10:
+            print('Its time to get your first steed!')
+            name = input('Enter your steed name')
+            self.get_the_steed(name)
 
     def put_on_equipment(self, extra_hp, extra_damage, cloth_type, cloth_name, equipment_lvl):
         if equipment_lvl <= self.level:
@@ -58,5 +67,11 @@ class Avatar:
     def attack(self, enemy):
         enemy.hp -= self.damage
 
-    def ride_steed(self, steed: TheSteed):
+    @protected
+    def get_the_steed(self, name):
+        name1 = TheSteed(name)
+        self.steed = name1
 
+    def change_the_steed(self,name):
+        name1 = TheSteed(name)
+        self.steed = name1
