@@ -58,8 +58,5 @@ class Avatar:
     def attack(self, enemy):
         enemy.hp -= self.damage
 
+    def ride_steed(self, steed: TheSteed):
 
-player1 = Avatar('Ellie')
-player2 = Avatar('Lynx')
-player1.attack(player2)
-print(player2.hp)

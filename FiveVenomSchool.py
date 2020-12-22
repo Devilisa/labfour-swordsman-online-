@@ -11,7 +11,6 @@ class FiveVenomSchool(Avatar):
         self.poison_damage = self.school_damage['poison_damage']
         self.equipment['Weapon'] = 'Simple lash'
 
-    @staticmethod
     def full_damage(self):
         return self.damage + self.earth_damage + self.poison_damage + self.fire_damage
 
