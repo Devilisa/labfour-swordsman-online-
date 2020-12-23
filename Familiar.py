@@ -4,7 +4,11 @@ class Familiar:
     def __init__(self, owner, name, type_of_familiar):
         self.owner = owner
         self.name = name
-        self.special_skill = self.familiar_type[type_of_familiar]
+        try:
+            self.special_skill = self.familiar_type[type_of_familiar]
+        except:
+            print('You entered wrong type and that is why you do not get special skill')
+            self.special_skill = 'no such skill'
         self.skills = {1: 'Opens character post', 2: 'Opens character warehouse', 3: 'Collects things',
                        4: 'Opens friends list', 5: self.special_skill}
 

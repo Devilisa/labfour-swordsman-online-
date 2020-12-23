@@ -26,9 +26,13 @@ class Avatar:
             self.exp_limit += 1000 * self.level
             self.hp += 70 * self.level
         if self.level == 10:
-            print('Its time to get your first steed!')
+            print('It is time to get your first steed!')
             name = input('Enter your steed name')
             self.get_the_steed(name)
+            print('Congratulations! You have got your steed. Now it is time to get familiar!')
+            name_familiar = input('Enter familiar name')
+            type_familiar = input('Enter type of your familiar')
+            self.get_familiar(type_familiar, name_familiar)
 
     def put_on_equipment(self, extra_hp, extra_damage, cloth_type, cloth_name, equipment_lvl):
         if equipment_lvl <= self.level:

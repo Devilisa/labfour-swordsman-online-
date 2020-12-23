@@ -52,6 +52,14 @@ class FiveVenomSchool(Avatar):
         else:
             print('Error: not suitable level for this equipment')
 
+    def full_info(self):
+        super().full_info()
+        print('Extra damage info')
+        print(f'Earth_damage: {self.school_damage["earth_damage"]}')
+        print(f'Fire_damage: {self.school_damage["fire_damage"]}')
+        print(f'Poison_damage: {self.school_damage["poison_damage"]}')
+        print('------------------')
+
 
 def entering_school(character: Avatar):
     character = FiveVenomSchool(character)
