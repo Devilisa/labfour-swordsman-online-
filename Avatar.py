@@ -1,5 +1,6 @@
 from accessify import protected
 from TheSteed import TheSteed
+from Familiar import Familiar
 
 
 class Avatar:
@@ -8,12 +9,13 @@ class Avatar:
     max_level = 99
     damage = 10
 
-    def __init__(self, nickname, hp=1000, exp=0, level=0, steed='none'):
+    def __init__(self, nickname, hp=1000, exp=0, level=0, steed='none', familiar='none'):
         self.nickname = nickname
         self.hp = hp
         self.exp = exp
         self.level = level
         self.steed = steed
+        self.familiar = familiar
         self.equipment = {'Helmet': 'none', 'Shirt': 'none', 'Bracers': 'none', 'Pants': 'none', 'Boots': 'none',
                           'Talisman': 'none', 'Ring': 'none', 'Weapon': 'none'}
 
@@ -69,9 +71,15 @@ class Avatar:
 
     @protected
     def get_the_steed(self, name):
+        steed = TheSteed(name)
+        self.steed = steed
+
+    def change_the_steed(self, name):
         name1 = TheSteed(name)
         self.steed = name1
 
-    def change_the_steed(self,name):
-        name1 = TheSteed(name)
-        self.steed = name1
+    @protected
+    def get_familiar(self, familiar_type, name):
+        owner = self.nickname
+        familiar = Familiar(owner, name, familiar_type)
+        self.familiar = familiar
